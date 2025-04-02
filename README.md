@@ -1,6 +1,6 @@
-# Seek Hub
+## Seek Hub
 A hub supports list game:
-Dead Rail:
+# Dead Rail:
 - Normal
 - Nightmare
 - Wait until new mode
