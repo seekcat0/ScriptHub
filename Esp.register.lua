@@ -1,13 +1,16 @@
 local ESP = {}
 
 function ESP.CreateEsp(Name, Distance, Color, Size, PartSet)
-    if not PartSet or not PartSet:IsA("BasePart") then
+    if not PartSet then
         warn("Invalid PartSet")
         return
     end
+
+    -- Kiểm tra nếu ESP đã tồn tại
     if PartSet:FindFirstChild("ESP_" .. Name) then
         return
     end
+
     local Billboard = Instance.new("BillboardGui")
     Billboard.Name = "ESP_" .. Name
     Billboard.Size = UDim2.new(0, Size, 0, Size)
@@ -24,16 +27,14 @@ function ESP.CreateEsp(Name, Distance, Color, Size, PartSet)
 end
 
 function ESP.EditEsp(Name, Distance, Color, Size, PartSet)
-    if not PartSet or not PartSet:IsA("BasePart") then
+    if not PartSet then
         warn("Invalid PartSet")
         return
     end
-
     local Billboard = PartSet:FindFirstChild("ESP_" .. Name)
     if not Billboard then
         return
     end
-
     Billboard.Size = UDim2.new(0, Size, 0, Size)
     local TextLabel = Billboard:FindFirstChildOfClass("TextLabel")
     if TextLabel then
