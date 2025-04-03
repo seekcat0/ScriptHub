@@ -19,7 +19,7 @@ return function(Text, Distance, Color, Size, PartSet, Type)
         end
         return
     end
-    if not PartSet or partSet:FindFirstChild("BoardGUI") then return end
+    if not PartSet or PartSet:FindFirstChild("BoardGUI") then return end
 
     local billboard = Instance.new("BillboardGui")
     billboard.Size = UDim2.new(0, Size, 0, Size)
