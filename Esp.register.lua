@@ -1,6 +1,6 @@
 local ESP = {}
 
-function ESP.CreateEsp(Name, Distance, Color, Size, PartSet)
+function ESP.CreateEsp(Name, Distance, Color, Size, PartSet, TextChange)
     if not PartSet then
         warn("Invalid PartSet")
         return
@@ -14,16 +14,15 @@ function ESP.CreateEsp(Name, Distance, Color, Size, PartSet)
     Billboard.Adornee = PartSet
     Billboard.AlwaysOnTop = true
     Billboard.Parent = PartSet
-
     local TextLabel = Instance.new("TextLabel")
     TextLabel.Size = UDim2.new(1, 0, 1, 0)
     TextLabel.BackgroundTransparency = 1
     TextLabel.TextColor3 = Color
-    TextLabel.Text = string.format("[%s] - [%d]", Name, Distance)
+    TextLabel.Text = TextChange or string.format("[%s] - [%d]", Name, Distance)
     TextLabel.Parent = Billboard
 end
 
-function ESP.EditEsp(Name, Distance, Color, Size, PartSet)
+function ESP.EditEsp(Name, Distance, Color, Size, PartSet, TextChange)
     if not PartSet then
         warn("Invalid PartSet")
         return
@@ -36,7 +35,7 @@ function ESP.EditEsp(Name, Distance, Color, Size, PartSet)
     local TextLabel = Billboard:FindFirstChildOfClass("TextLabel")
     if TextLabel then
         TextLabel.TextColor3 = Color
-        TextLabel.Text = string.format("[%s] - [%d]", Name, Distance)
+        TextLabel.Text = TextChange or string.format("[%s] - [%d]", Name, Distance)
     end
 end
 
