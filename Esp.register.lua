@@ -19,13 +19,14 @@ return function(Text, Distance, Color, Size, PartSet, Type)
         end
         return
     end
-    if not PartSet or not PartSet:IsA("BasePart") then return end
+    if not PartSet or partSet:FindFirstChild("BoardGUI") then return end
 
     local billboard = Instance.new("BillboardGui")
     billboard.Size = UDim2.new(0, Size, 0, Size)
     billboard.StudsOffset = Vector3.new(0, 2, 0)
     billboard.AlwaysOnTop = true
     billboard.Parent = PartSet
+    billboard.Name = 'BoardGUI'
 
     local frame = Instance.new("Frame")
     frame.Size = UDim2.new(1, 0, 1, 0)
