@@ -5,12 +5,9 @@ function ESP.CreateEsp(Name, Distance, Color, Size, PartSet)
         warn("Invalid PartSet")
         return
     end
-
-    -- Kiểm tra nếu ESP đã tồn tại
     if PartSet:FindFirstChild("ESP_" .. Name) then
         return
     end
-
     local Billboard = Instance.new("BillboardGui")
     Billboard.Name = "ESP_" .. Name
     Billboard.Size = UDim2.new(0, Size, 0, Size)
